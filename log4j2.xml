@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- how to set up log4j2 in netbeans -->
+<!-- https://stackoverflow.com/questions/43094299/setting-up-log4j2-in-netbeans-basic-configuration -->
+
+<!-- log4j2 patterns -->
+<!-- https://howtodoinjava.com/log4j2/useful-conversion-pattern-examples/ -->
+
+<Configuration status="warn">
+  <Appenders>
+    <Console name="STDOUT" target="SYSTEM_OUT">
+      <PatternLayout>
+        <Pattern>%d [%-6p] %C{1}.%M (%F:%L): %m%n</Pattern>        
+      </PatternLayout>
+    </Console>
+    <File name="FILE" fileName="logs/myLog.log">
+      <PatternLayout>
+        <Pattern>%d [%-6p] %C{1}.%M (%F:%L): %m%n</Pattern>        
+      </PatternLayout>
+    </File>
+  </Appenders>
+  <Loggers>
+    <!-- https://howtodoinjava.com/log4j/logging-levels-in-log4j/ -->  
+    <Root level="DEBUG">
+      <AppenderRef ref="FILE"/>
+      <AppenderRef ref="STDOUT"/>
+    </Root>
+  </Loggers>
+</Configuration>
